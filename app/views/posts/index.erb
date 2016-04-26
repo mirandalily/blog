@@ -1,0 +1,10 @@
+<h3>Posts</h3>
+<%@posts.each do |post|%>
+  <%=post.user.username%>: <a href="/posts/<%=tweet.id%>"><%=post.content%></a>
+<%end%>
+<br />
+<br />
+<br />
+<a href='/posts/new'>New Post</a>
+<br />
+<a href="/logout">Logout</a>

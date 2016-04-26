@@ -1,0 +1,13 @@
+<form action ='/posts/<%=@post.id%>/delete' method='POST'>
+  <input type='hidden' id='hidden' name='_method' value ='DELETE' />
+  <input type='submit' value='Delete Post' />
+  <br />
+</form>
+<% if @user == @post.user%>
+    <a href="/tweets/<%=@post.id%>/edit">Edit Tweet</a>
+<%end%>
+<br />
+<a href='/posts'>View All Posts</a>
+<br />
+<br />
+<a href="/logout">Logout</a>
