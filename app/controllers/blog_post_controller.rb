@@ -24,9 +24,7 @@ class BlogPostController < ApplicationController
       redirect "/posts/new"
     else
       @user = User.find_by_id(session[:user_id])
-      @post = Post.create(:content => params[:content], :title => params[:title])
-      @post.tag = params[:tags]
-      @post.save
+      @post = Post.create(:content => params[:content], :title => params[:title], :user_id => @user.id)
       redirect "/posts/#{@post.id}"
     end
   end
