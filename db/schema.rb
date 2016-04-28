@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 4) do
+
+  create_table "post_tags", force: :cascade do |t|
+    t.integer "post_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string  "title"
     t.string  "content"
     t.integer "user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,13 @@
+<h2>Tag</h2>
+<br />
+<p><%=@tag.name%></p>
+<form action ='/tags/<%=@tag.id%>/delete' method='POST'>
+  <input type='hidden' id='hidden' name='_method' value ='DELETE' />
+  <input type='submit' value='Delete Tag' />
+  <br />
+</form>
+<a href="/tags/<%=@tag.id%>/edit">Edit Tag</a>
+<br />
+<a href='/tags'>View All Tags</a>
+<br />
+<a href="/logout">Logout</a>

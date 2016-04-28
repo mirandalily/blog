@@ -1,0 +1,9 @@
+<h3>Tags</h3>
+<%@tags.each do |tag|%>
+  <li><a href="/tags/<%=tag.id%>"><%=tag.name%></a></li>
+<%end%>
+
+<a href='/tags/new'>New Tag</a>
+<br />
+<a href='/posts'>Home</a>
+<a href="/logout">Logout</a>
