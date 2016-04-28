@@ -24,7 +24,7 @@ class BlogPostController < ApplicationController
       redirect "/posts/new"
     else
       @user = User.find_by_id(session[:user_id])
-      @post = Post.create(:content => params[:content], :user_id => @user.id)
+      @post = Post.create(:content => params[:content], :title => params[:title], :user_id => @user.id)
       redirect "/posts/#{@post.id}"
     end
   end
@@ -33,7 +33,7 @@ class BlogPostController < ApplicationController
     if session[:user_id]
       @user = User.find_by_id(session[:user_id])
       @post = Post.find_by_id(params[:id])
-      erb :'post/show'
+      erb :'posts/show'
     else
       redirect '/login'
     end
@@ -44,7 +44,7 @@ class BlogPostController < ApplicationController
     @user = User.find_by_id(session[:user_id])
     if session[:user_id]
       if @user == @post.user
-        erb :'/posts/edit_tweet'
+        erb :'/posts/edit'
       else
         redirect "/posts/#{@post.id}"
       end

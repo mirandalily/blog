@@ -1,13 +1,18 @@
+<h2>Post</h2>
+<br />
+<div class='post_show'>
+  <h3><%=@post.title%></h3>
+  <p><%=@post.content%></p>
+</div>
 <form action ='/posts/<%=@post.id%>/delete' method='POST'>
   <input type='hidden' id='hidden' name='_method' value ='DELETE' />
   <input type='submit' value='Delete Post' />
   <br />
 </form>
 <% if @user == @post.user%>
-    <a href="/tweets/<%=@post.id%>/edit">Edit Tweet</a>
+    <a href="/posts/<%=@post.id%>/edit">Edit Post</a>
 <%end%>
 <br />
 <a href='/posts'>View All Posts</a>
-<br />
 <br />
 <a href="/logout">Logout</a>
