@@ -27,8 +27,9 @@ class BlogPostController < ApplicationController
       @tag = Tag.create(name: params[:tag_name])
       @post = Post.create(:content => params[:content], :title => params[:title], :user_id => @user.id)
       PostTag.create(post_id: @post.id, :tag_id => @tag.id)
-      params[:tags].each do |id|
-        PostTag.create(post_id: @post.id, tag_id: id)
+        params[:tags].each do |id|
+          PostTag.create(post_id: @post.id, tag_id: id)
+        end
       end
       redirect "/posts/#{@post.id}"
     end
