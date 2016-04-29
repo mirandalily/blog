@@ -24,7 +24,12 @@ class BlogPostController < ApplicationController
       redirect "/posts/new"
     else
       @user = User.find_by_id(session[:user_id])
+      @tag = Tag.create(name: params[:tag_name])
       @post = Post.create(:content => params[:content], :title => params[:title], :user_id => @user.id)
+      PostTag.create(post_id: @post.id, :tag_id => @tag.id)
+      params[:tags].each do |id|
+        PostTag.create(post_id: @post.id, tag_id: id)
+      end
       redirect "/posts/#{@post.id}"
     end
   end

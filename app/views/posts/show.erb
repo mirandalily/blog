@@ -3,6 +3,9 @@
 <div class='post_show'>
   <h3><%=@post.title%></h3>
   <p><%=@post.content%></p>
+  <%@post.tags.each do |tag|%>
+    <p><%=tag.name%></p>
+  <%end%>
 </div>
 <form action ='/posts/<%=@post.id%>/delete' method='POST'>
   <input type='hidden' id='hidden' name='_method' value ='DELETE' />
